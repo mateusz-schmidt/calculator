@@ -1,7 +1,7 @@
 let number1;
 let number2;
 let operator;
-let reset = false;
+let reset = true;
 
 const buttons = document.querySelector(`.calculator`);
 const digits = document.querySelector(`.digits`);
@@ -19,6 +19,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+
   return a / b;
 }
 
@@ -35,6 +36,7 @@ function operate(operator, a, b) {
       result = multiply(a, b);
       break;
     case `/`:
+      if (b === 0) return 'Error';
       result = divide(a, b);
       break;
   }
@@ -92,14 +94,8 @@ function populateDisplay(event) {
       removeCharacter();
       break;
     case `+`:
-      assignNumbers(button);
-      break;
     case `-`:
-      assignNumbers(button);
-      break;
     case `*`:
-      assignNumbers(button);
-      break;
     case `/`:
       assignNumbers(button);
       break;
